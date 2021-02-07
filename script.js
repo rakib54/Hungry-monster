@@ -16,6 +16,7 @@ const getMealInput = (MealName) => {
 
 const displayMeal = meals => {
     const MealsDiv = document.getElementById('meal-container')
+    MealsDiv.innerHTML ='';
     meals.forEach(meal => {
         const MealDiv = document.createElement('div');
         MealDiv.className = "MealDivClass";
