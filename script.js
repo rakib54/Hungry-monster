@@ -1,14 +1,18 @@
 const SearchButton = document.getElementById('searchButton').addEventListener('click', function () {
-    const TakeInput = document.getElementById('MealInput');
-
-    fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood')
-        .then(res => res.json())
-        .then(data => {
-            TakeInput.innerText = (data.meals);
-            displayMeal(data.meals);
-
-        })
+    const TakeInput = document.getElementById('MealInput').value;
+    getMealInput(TakeInput);
 })
+
+const getMealInput = (MealName) => {
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${MealName}`)
+        .then(response => response.json())
+        .then(data => displayMeal(data.meals))
+        .catch(error => {
+            errormessege.innerText = "Not Found! Try Again";
+        });
+    document.getElementById('MealInput').value = "";
+    errormessege.innerText = "";
+}
 
 const displayMeal = meals => {
     const MealsDiv = document.getElementById('meal-container')
@@ -52,6 +56,9 @@ const renderMealsInfo = meal => {
             <li>${meal.strIngredient5}</li>
             <li>${meal.strIngredient6}</li>
             <li>${meal.strIngredient7}</li>
+            <li>${meal.strIngredient8}</li>
+            <li>${meal.strIngredient9}</li>
+            <li>${meal.strIngredient10}</li>
             </ul>
         </div>
     `
