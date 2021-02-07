@@ -1,0 +1,24 @@
+.input-container{
+    text-align: center;    
+}
+.AllMeals img{
+    width: 200px;
+}
+#meal-container{
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+
+}
+.MealsDetails img{
+    width: 200px;
+    margin: 10px;
+}
+.MealDivClass{
+    border: 1px solid grey;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+}
